@@ -15,12 +15,14 @@ public class main {
      */
     public static void main(String[] args) throws Exception {
         
-        functions Model = new functions("Preprocessing\\train_data.arff", null, null);
-        Model.trainset = Model.dividedatatraditional(Model.dataset, 20,false);
-        Model.testset = Model.dividedatatraditional(Model.dataset,20, true);
-        System.out.print(Model);
-        System.out.println(Model.trainset.toSummaryString());
-        System.out.println(Model.testset.toSummaryString());
+        gradientboostingmodel model = new gradientboostingmodel("", 
+                                "-P 100 -S 1 -num-slots 1 -I 10 -W weka.classifiers.trees.REPTree -- -M 2 -V 0.001 -N 3 -S 1 -L -1 -I 0.0",
+        null);
+        model.buildcatboostmodel("C:\\Users\\Tuyet Anh\\OneDrive - VietNam National University - HCM INTERNATIONAL UNIVERSITY\\Documents\\Weka_data\\train_data.arff");
+      //  System.out.println("Hi");
+        model.evaluateXGBoost("C:\\Users\\Tuyet Anh\\OneDrive - VietNam National University - HCM INTERNATIONAL UNIVERSITY\\Documents\\Weka_data\\test_data.arff");
+        model.predictClassLabel("C:\\Users\\Tuyet Anh\\OneDrive - VietNam National University - HCM INTERNATIONAL UNIVERSITY\\Documents\\Weka_data\\unlabel_data.arff", "C:\\Users\\Tuyet Anh\\OneDrive - VietNam National University - HCM INTERNATIONAL UNIVERSITY\\Documents\\Weka_data\\predict_data_gd.arff");
+        model.evaluate("C:\\Users\\Tuyet Anh\\OneDrive - VietNam National University - HCM INTERNATIONAL UNIVERSITY\\Documents\\Weka_data\\actual_data.arff", "C:\\Users\\Tuyet Anh\\OneDrive - VietNam National University - HCM INTERNATIONAL UNIVERSITY\\Documents\\Weka_data\\predict_data_gd.arff");
     }
     
 }
