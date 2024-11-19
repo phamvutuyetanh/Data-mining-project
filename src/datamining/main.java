@@ -15,14 +15,13 @@ public class main {
      */
     public static void main(String[] args) throws Exception {
         
-        gradientboostingmodel model = new gradientboostingmodel("", 
-                                "-P 100 -S 1 -num-slots 1 -I 10 -W weka.classifiers.trees.REPTree -- -M 2 -V 0.001 -N 3 -S 1 -L -1 -I 0.0",
-        null);
-        model.buildcatboostmodel("C:\\Users\\Tuyet Anh\\OneDrive - VietNam National University - HCM INTERNATIONAL UNIVERSITY\\Documents\\Weka_data\\train_data.arff");
-      //  System.out.println("Hi");
-        model.evaluateXGBoost("C:\\Users\\Tuyet Anh\\OneDrive - VietNam National University - HCM INTERNATIONAL UNIVERSITY\\Documents\\Weka_data\\test_data.arff");
-        model.predictClassLabel("C:\\Users\\Tuyet Anh\\OneDrive - VietNam National University - HCM INTERNATIONAL UNIVERSITY\\Documents\\Weka_data\\unlabel_data.arff", "C:\\Users\\Tuyet Anh\\OneDrive - VietNam National University - HCM INTERNATIONAL UNIVERSITY\\Documents\\Weka_data\\predict_data_gd.arff");
-        model.evaluate("C:\\Users\\Tuyet Anh\\OneDrive - VietNam National University - HCM INTERNATIONAL UNIVERSITY\\Documents\\Weka_data\\actual_data.arff", "C:\\Users\\Tuyet Anh\\OneDrive - VietNam National University - HCM INTERNATIONAL UNIVERSITY\\Documents\\Weka_data\\predict_data_gd.arff");
+        randomforestmodel model = new randomforestmodel("", 
+                                "-P 100 -I 100 -num-slots 1 -K 0 -M 1.0 -V 0.001 -S 1",null);
+        model.buildRandomForest("C:\\Users\\Tuyet Anh\\Downloads\\train_data.arff");
+       // System.out.println("Hi");
+        model.evaluateRandomForest("C:\\Users\\Tuyet Anh\\Downloads\\test_data.arff");
+        model.predictClassLabel("C:\\Users\\Tuyet Anh\\Downloads\\unlabel_data.arff", "C:\\Users\\Tuyet Anh\\Downloads\\predict_data.arff");
+        model.evaluate("C:\\Users\\Tuyet Anh\\Downloads\\validation_data.arff", "C:\\Users\\Tuyet Anh\\Downloads\\predict_data.arff");
     }
     
 }
