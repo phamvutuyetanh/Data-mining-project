@@ -30,15 +30,43 @@ public class main {
     /**
      * @DecisionTree main
      */
-        String filename = "C:\\Users\\Admin\\OneDrive\\Documents\\NetBeansProjects\\Data-mining-project\\Preprocessing\\";
-        String trainLocation = filename + "train_data.arff";
-        String testLocation = filename + "test_data.arff";
-        J48Model model = new J48Model("", "-C 0.25 -M 2", null);
-        model.buildTree(trainLocation);
-        model.evaluateDecisionTree(testLocation);
-        System.out.println(model);
+//        String filename = "C:\\Users\\Admin\\OneDrive\\Documents\\NetBeansProjects\\Data-mining-project\\Preprocessing\\";
+//        String trainLocation = filename + "train_data.arff";
+//        String testLocation = filename + "test_data.arff";
+//        String unlabelLocation = filename + "unlabel_data.arff";
+//        String predictResult = filename + "predict_j48.arff";
+//        J48Model model = new J48Model("", "-C 0.25 -M 2", null);
+//        model.buildTree(trainLocation);
+//        model.evaluateDecisionTree(testLocation);
+//        model.predictClassLabel(unlabelLocation, predictResult);
+//        System.out.println(model);
+    /**
+     * @NaiveBayes main
+     */
+//        String filename = "C:\\Users\\Admin\\OneDrive\\Documents\\NetBeansProjects\\Data-mining-project\\Preprocessing\\";
+//        String trainLocation = filename + "train_data.arff";
+//        String testLocation = filename + "test_data.arff";
+//        String unlabelLocation = filename + "unlabel_data.arff";
+//        String predictResult = filename + "predict_nb.arff";
+//        NaiveBayesModel model = new NaiveBayesModel();
+//        model.buildNaiveBayes(trainLocation);
+//        model.evaluateNaiveBayes(testLocation);
+//        model.predictClassLabel(unlabelLocation, predictResult);
+//        System.out.println(model);
+
+    /**
+     * @SVM main
+     */
+//        String filename = "C:\\Users\\Admin\\OneDrive\\Documents\\NetBeansProjects\\Data-mining-project\\Preprocessing\\";
+//        String trainLocation = filename + "train_data.arff";
+//        String testLocation = filename + "test_data.arff";
+//        String unlabelLocation = filename + "unlabel_data.arff";
+//        String predictResult = filename + "predict_svm.arff";
+//
+//        SVM_Model model = new SVM_Model("","-C 1.0 -L 0.001 -P 1.0E-12 -N 0 -V -1 -W 1 -K \"weka.classifiers.functions.supportVector.PolyKernel -E 1.0 -C 250007\" -calibrator \"weka.classifiers.functions.Logistic -R 1.0E-8 -M -1 -num-decimal-places 4\"",null);
+//        model.buildSVM(trainLocation);
+//        model.evaluateSVM(testLocation);
+//        model.predictClassLabel(unlabelLocation, predictResult);
+//        System.out.println(model); 
     }
-    
-    
-    
 }

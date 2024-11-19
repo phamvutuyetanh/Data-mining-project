@@ -1,11 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package datamining;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.util.Random;
 import weka.classifiers.Evaluation;
 import weka.classifiers.trees.J48;
+import weka.core.Instances;
+import weka.core.converters.ConverterUtils.DataSource;
 /**
  *
  * @author Tuyet My
@@ -31,12 +32,31 @@ public class J48Model extends functions{
     public void evaluateDecisionTree(String testFileName) throws Exception{
         setTestset(testFileName);
         this.testset.setClassIndex(this.testset.numAttributes() - 1);
+        Random rnd = new Random(1);
+        int folds = 10;
         Evaluation eval = new Evaluation(this.trainset);
-        eval.evaluateModel(tree, this.testset);
-        System.out.println(eval.toSummaryString("\n Evaluation\n-------------\n",
+        eval.evaluateModel(this.tree, this.testset);
+        eval.crossValidateModel(this.tree,this.testset, folds, rnd);
+        
+        System.out.println(eval.toSummaryString("\nEvaluation\n-----------------\n",
                 false));
     }
     
+    public void predictClassLabel (String fileIn, String fileOut) throws Exception{
+        DataSource ds = new DataSource(fileIn);
+        Instances unlabel = ds.getDataSet();
+        unlabel.setClassIndex(unlabel.numAttributes() -1);
+        for (int i=0; i<unlabel.numInstances(); i++){
+            double predict = this.tree.classifyInstance(unlabel.instance(i));
+            unlabel.instance(i).setClassValue(predict);
+        }
+        
+        BufferedWriter outWriter = new BufferedWriter (new FileWriter(fileOut));
+        outWriter.write(unlabel.toString());
+        outWriter.newLine();
+        outWriter.flush();
+        outWriter.close();
+    }
     @Override
     public String toString() {
         return tree.toSummaryString();
