@@ -7,16 +7,16 @@
 @attribute CH2O real
 @attribute FAF real
 @attribute TUE real
-@attribute CAEC_Encoded real
-@attribute CALC_Encoded real
-@attribute MTRANS_Automobile real
-@attribute MTRANS_Bike real
-@attribute MTRANS_Motorbike real
-@attribute MTRANS_Public_Transportation real
-@attribute MTRANS_Walking real
-@attribute Gender_Female real
-@attribute Gender_Male real
-@attribute class {OvlII, Normal, Insuff, ObIII, ObII, OvlI, ObI}
+@attribute CAEC_Encoded {0,1,2,3}
+@attribute CALC_Encoded {0,1,2}
+@attribute MTRANS_Automobile {0,1}
+@attribute MTRANS_Bike {0,1}
+@attribute MTRANS_Motorbike {0,1}
+@attribute MTRANS_Public_Transportation {0,1}
+@attribute MTRANS_Walking {0,1}
+@attribute Gender_Female {0,1}
+@attribute Gender_Male {0,1}
+@attribute class {OvlII,Normal,Insuff,ObIII,ObII,OvlI,ObI}
 
 @data
 0.5843589527949328,-0.9441475654054017,0.13155995660383038,0.8295335095551555,0.44347106722309376,-1.0645495602866515,-0.43369129569112747,1,1,0,0,0,1,0,1,0,ObIII
