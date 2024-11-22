@@ -26,7 +26,7 @@ public class gradientboostingmodel extends functions{
         super(filename, m_options, d_options);
     }
     
-    public void buildcatboostmodel (String filename) throws Exception{
+    public void buildgradientboostmodel (String filename) throws Exception{
         setTrainset(filename);
         this.trainset.setClassIndex(this.trainset.numAttributes() -1);
         this.model = new Bagging();
@@ -36,7 +36,7 @@ public class gradientboostingmodel extends functions{
         model.buildClassifier(this.trainset);
     }
     
-    public void evaluateXGBoost (String filename) throws Exception {
+    public void evaluateBoost (String filename) throws Exception {
         setTestset(filename);
         this.testset.setClassIndex(this.testset.numAttributes()-1);
         Random rand = new Random(1);

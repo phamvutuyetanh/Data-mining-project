@@ -91,17 +91,17 @@ public class main {
      * @Gradientboosting main
      */
 //        gradientboostingmodel gb = new gradientboostingmodel("","-P 100 -S 1 -num-slots 1 -I 10 -W weka.classifiers.trees.REPTree -- -M 2 -V 0.001 -N 3 -S 1 -L -1 -I 0.0" , null);
-//        gb.buildcatboostmodel(trainLocation);
-//        gb.evaluateXGBoost(testLocation);
+//        gb.buildgradientboostmodel(trainLocation);
+//        gb.evaluateBoost(testLocation);
         // data1: 91.3978 %
         // data2: 91.5244 %
         
         /**
       * @Voting main
      */
-        votingtechniques voting = new votingtechniques("", null, null);
-        voting.buildVotingModel(trainLocation );
-        voting.evaluateVotingModel(testLocation);
+//        votingtechniques voting = new votingtechniques("", null, null);
+//        voting.buildVotingModel(trainLocation );
+//        voting.evaluateVotingModel(testLocation);
         // data1: 92.2201 %
        // data2: 91.6509 %
     }
