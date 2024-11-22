@@ -19,7 +19,7 @@ public class main {
     /**
      * @DecisionTree main
      */
-        String filename = "D:\\Project\\Data-mining-project\\Preprocessing\\";
+        String filename = "C:\\Users\\Tuyet Anh\\Downloads\\";
         String trainLocation = filename + "train_data.arff";
         String testLocation = filename + "test_data.arff";
 //        String unlabelLocation = filename + "unlabel_data.arff";
@@ -29,8 +29,8 @@ public class main {
 //        model.evaluateDecisionTree(testLocation);
 //        model.predictClassLabel(unlabelLocation, predictResult);
 //        System.out.println(model);
-        // Past data: 91.7457 %
-        // New data: 91.809
+        // data1: 91.7457 %
+        //  data2: 91.809
         
     /**
      * @NaiveBayes main
@@ -45,8 +45,8 @@ public class main {
 //        model.evaluateNaiveBayes(testLocation);
 //        model.predictClassLabel(unlabelLocation, predictResult);
 //        System.out.println(model);
-// // Past data: 87.413  %
-// New data: 86.7805 %
+// // data1: 87.413  %
+//  data2: 86.7805 %
 
     /**
      * @SVM main
@@ -62,8 +62,10 @@ public class main {
 //        model.evaluateSVM(testLocation);
 //        model.predictClassLabel(unlabelLocation, predictResult);
 //        System.out.println(model); 
-// past data : 85.5155 %
-// new data: 85.7052 %
+// data1: 85.5155 %
+//  data2: 85.7052 %
+
+// Tuyet Anh
 /**
      * @RandomForest main
      */   
@@ -74,26 +76,33 @@ public class main {
 //        model.evaluateRandomForest(testLocation);
 //        model.predictClassLabel(unlabelLocation, predictResult);
 //        model.evaluate("C:\\Users\\Tuyet Anh\\Downloads\\validation_data.arff", "C:\\Users\\Tuyet Anh\\Downloads\\predict_data.arff");
-// past data: 92.7894 %
+// data1: 92.7894 %
+//  data2: 91.8406 %
         /**
      * @NeuralNetwork main
      */ 
 //        neuralnetworkmodel model = new neuralnetworkmodel("","-L 0.3 -M 0.2 -N 500 -V 0 -S 0 -E 20 -H a", null);
 //        model.buildNeuralNetwork(trainLocation);
 //        model.evaluateNeuralNetwork(testLocation);
-        // past data: 88.172  %
+//         data1: 88.172  %
+        // data2:89.3106 %
         
           /**
      * @Gradientboosting main
      */
-        gradientboostingmodel gb = new gradientboostingmodel("","-P 100 -S 1 -num-slots 1 -I 10 -W weka.classifiers.trees.REPTree -- -M 2 -V 0.001 -N 3 -S 1 -L -1 -I 0.0" , null);
-        gb.buildcatboostmodel(trainLocation);
-        gb.evaluateXGBoost(testLocation);
-        // past data: 91.3978 %
+//        gradientboostingmodel gb = new gradientboostingmodel("","-P 100 -S 1 -num-slots 1 -I 10 -W weka.classifiers.trees.REPTree -- -M 2 -V 0.001 -N 3 -S 1 -L -1 -I 0.0" , null);
+//        gb.buildcatboostmodel(trainLocation);
+//        gb.evaluateXGBoost(testLocation);
+        // data1: 91.3978 %
+        // data2: 91.5244 %
         
         /**
       * @Voting main
      */
-        
+        votingtechniques voting = new votingtechniques("", null, null);
+        voting.buildVotingModel(trainLocation );
+        voting.evaluateVotingModel(testLocation);
+        // data1: 92.2201 %
+       // data2: 91.6509 %
     }
 }
