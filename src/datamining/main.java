@@ -31,6 +31,7 @@ public class main {
 //        System.out.println(model);
         // data1: 91.7457 %
         //  data2: 91.809
+        // 93.2292 %
         
     /**
      * @NaiveBayes main
@@ -57,7 +58,7 @@ public class main {
 //        String unlabelLocation = filename + "unlabel_data.arff";
 //        String predictResult = filename + "predict_svm.arff";
 //
-//        SVM_Model model = new SVM_Model("","-C 1.0 -L 0.001 -P 1.0E-12 -N 0 -V -1 -W 1 -K \"weka.classifiers.functions.supportVector.PolyKernel -E 1.0 -C 250007\" -calibrator \"weka.classifiers.functions.Logistic -R 1.0E-8 -M -1 -num-decimal-places 4\"",null);
+//        SVM_Model model = new SVM_Model("","-C 20.0 -L 0.001 -P 1.0E-12 -N 0 -V -1 -W 1 -K \"weka.classifiers.functions.supportVector.RBFKernel -C 250007 -G 0.01\" -calibrator \"weka.classifiers.functions.Logistic -R 1.0E-8 -M -1 -num-decimal-places 4\"",null);
 //        model.buildSVM(trainLocation);
 //        model.evaluateSVM(testLocation);
 //        model.predictClassLabel(unlabelLocation, predictResult);
@@ -78,6 +79,7 @@ public class main {
 //        model.evaluate("C:\\Users\\Tuyet Anh\\Downloads\\validation_data.arff", "C:\\Users\\Tuyet Anh\\Downloads\\predict_data.arff");
 // data1: 92.7894 %
 //  data2: 91.8406 %
+// 93.2292 %
         /**
      * @NeuralNetwork main
      */ 
@@ -99,10 +101,10 @@ public class main {
         /**
       * @Voting main
      */
-//        votingtechniques voting = new votingtechniques("", null, null);
-//        voting.buildVotingModel(trainLocation );
-//        voting.evaluateVotingModel(testLocation);
+        votingtechniques voting = new votingtechniques("", null, null);
+        voting.buildVotingModel(trainLocation );
+        voting.evaluateVotingModel(testLocation);
         // data1: 92.2201 %
-       // data2: 91.6509 %
+       // 94.122  %
     }
 }
