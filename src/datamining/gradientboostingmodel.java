@@ -43,7 +43,9 @@ public class gradientboostingmodel extends functions{
         int folds = 10;
         Evaluation eval = new Evaluation (this.trainset);
         eval.crossValidateModel (model, this.testset, folds, rand);
-        System.out.println(eval.toSummaryString("\nEvaluation Results\n=================\n", false));
+         System.out.println(eval.toSummaryString("\nEvaluation\n-----------------\n", false));
+        // Print precision, recall, F1-score, and other class details
+        System.out.println(eval.toClassDetailsString("\nClass Details\n-----------------\n"));
     }
     
     public void predictClassLabel (String fileIn, String fileOut) throws Exception{

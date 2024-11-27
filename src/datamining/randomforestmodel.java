@@ -41,7 +41,9 @@ public class randomforestmodel extends functions{
 
         Evaluation eval = new Evaluation(this.trainset);
         eval.crossValidateModel(this.rf, this.testset, folds, rand);
-        System.out.println(eval.toSummaryString("\nEvaluation Results\n=================\n", false));
+        System.out.println(eval.toSummaryString("\nEvaluation\n-----------------\n", false));
+        // Print precision, recall, F1-score, and other class details
+        System.out.println(eval.toClassDetailsString("\nClass Details\n-----------------\n"));
     }
     
     public void predictClassLabel(String inputFilename, String outputFilename) throws Exception {

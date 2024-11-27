@@ -68,8 +68,9 @@ public class votingtechniques extends functions{
         int folds = 10;
         eval = new Evaluation(this.trainset);
         eval.crossValidateModel(this.voting, testset, folds, rand);
-        System.out.println("Hi");
-        System.out.println(eval.toSummaryString("\nEvaluation Results\n=================\n", false));
+        System.out.println(eval.toSummaryString("\nEvaluation\n-----------------\n", false));
+        // Print precision, recall, F1-score, and other class details
+        System.out.println(eval.toClassDetailsString("\nClass Details\n-----------------\n"));
         
     }
     
