@@ -38,8 +38,10 @@ public class J48Model extends functions{
         eval.evaluateModel(this.tree, this.testset);
         eval.crossValidateModel(this.tree,this.testset, folds, rnd);
         
-        System.out.println(eval.toSummaryString("\nEvaluation\n-----------------\n",
-                false));
+        // Print basic evaluation metrics
+        System.out.println(eval.toSummaryString("\nEvaluation\n-----------------\n", false));
+        // Print precision, recall, F1-score, and other class details
+        System.out.println(eval.toClassDetailsString("\nClass Details\n-----------------\n"));
     }
     
     public void predictClassLabel (String fileIn, String fileOut) throws Exception{

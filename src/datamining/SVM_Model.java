@@ -40,8 +40,11 @@ public class SVM_Model extends functions{
         int folds = 10;
         Evaluation eval = new Evaluation(this.trainset);
         eval.crossValidateModel(this.svm,this.testset, folds, rnd);
-        System.out.println(eval.toSummaryString("\nEvaluation\n-----------------\n",
-                false));
+        
+        // Print basic evaluation metrics
+        System.out.println(eval.toSummaryString("\nEvaluation\n-----------------\n", false));
+        // Print precision, recall, F1-score, and other class details
+        System.out.println(eval.toClassDetailsString("\nClass Details\n-----------------\n"));
     }
     
     public void predictClassLabel(String fileIn, String fileOut) throws Exception{
