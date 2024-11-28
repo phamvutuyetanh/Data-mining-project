@@ -19,9 +19,14 @@ public class main {
     /**
      * @DecisionTree main
      */
-        String filename = "C:\\Users\\Tuyet Anh\\Downloads\\";
-        String trainLocation = filename + "train_data.arff";
-        String testLocation = filename + "test_data.arff";
+        String filename = "C:\\Users\\tanvu\\Downloads\\";
+        String trainLocation = filename + "train_data (1).arff";
+        String train2= filename+ "unlabel_data.arff";
+        String testLocation = filename + "test_data(1).arff";
+        String validation= filename+ "label_data.arff";
+        String predictResult= filename + "predict.arff";
+        
+     
 //        String unlabelLocation = filename + "unlabel_data.arff";
 //        String predictResult = filename + "predict_j48.arff";
 //        J48Model model = new J48Model("", "-C 0.25 -M 2", null);
@@ -103,8 +108,12 @@ public class main {
      */
         votingtechniques voting = new votingtechniques("", null, null);
         voting.buildVotingModel(trainLocation );
-        voting.evaluateVotingModel(testLocation);
-        // data1: 92.2201 %
-       // 94.122  %
+        voting.evaluateVotingModel(validation);
+        J48Model model = new J48Model("", "-C 0.25 -M 2", null);
+        model.buildTree(trainLocation);
+        model.evaluateDecisionTree(validation);
+        model.predictClassLabel(train2, predictResult);
+        
+        
     }
 }
