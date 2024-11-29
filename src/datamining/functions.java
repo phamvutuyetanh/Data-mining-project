@@ -64,28 +64,6 @@ public class functions {
         this.testset = testSource.getDataSet();
     }
     
-    public void evaluate (String fileactual, String filepredict) throws Exception{
-        DataSource ds = new DataSource(fileactual);
-        Instances label = ds.getDataSet();
-        label.setClassIndex(this.trainset.numAttributes() -1);
-        DataSource ds1 = new DataSource(filepredict);
-        Instances unlabel = ds1.getDataSet();
-        unlabel.setClassIndex(this.trainset.numAttributes() -1);
-        int correctPredictions = 0;
-        for (int i = 0; i < unlabel.numInstances(); i++) {
-            Instance label_e = label.instance(i);
-            Instance predict = unlabel.instance(i);
-            double actualClass = label_e.classValue();
-            double predictedClass = predict.classValue();
-            if (actualClass == predictedClass) {
-                correctPredictions++;
-            }
-            }
-        System.out.println("Accuracy is ");
-        double accuracyy = (double) correctPredictions / unlabel.numInstances();
-        double accuracy =  accuracyy *100;
-        System.out.println(accuracy);
-    }
 
     @Override
     public String toString() {
