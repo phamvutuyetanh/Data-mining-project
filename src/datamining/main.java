@@ -23,7 +23,7 @@ public class main {
         String trainLocation = filename + "train_data.arff";
         String train2= filename+ "unlabel_data.arff";
         String testLocation = filename + "test_data.arff";
-        String validation= filename+ "label_data.arff";
+        String validation= filename+ "validation_data.arff";
         String predictResult= filename + "predict.arff";
         
         /**

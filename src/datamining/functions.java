@@ -5,6 +5,8 @@
 package datamining;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import weka.core.Instance;
 import weka.core.Instances;
 import weka.core.converters.ArffSaver;
@@ -54,14 +56,57 @@ public class functions {
         
     }
     
-    public void setTrainset (String filename) throws Exception {
-        DataSource trainSource = new DataSource(filename);
-        this.trainset = trainSource.getDataSet();
+    public void setTrainset (String filename){
+//        DataSource trainSource = new DataSource(filename);
+//        this.trainset = trainSource.getDataSet();
+//        
+         try {
+            // Create a Path object from the given filename
+            Path path = Paths.get(filename);
+
+            // If the path is not absolute, resolve it relative to the current working directory
+            if (!path.isAbsolute()) {
+                String currentDir = System.getProperty("user.dir");
+                path = Paths.get(currentDir, filename).normalize();
+            }
+
+            // Convert the Path to a String
+            String absolutePath = path.toAbsolutePath().toString();
+
+            // Use the DataSource with the resolved path
+            DataSource trainSource = new DataSource(absolutePath);
+            this.trainset = trainSource.getDataSet();
+
+            System.out.println("Dataset loaded successfully from: " + absolutePath);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.err.println("Failed to load dataset.");
+        }
     }
     
-    public void setTestset (String filename) throws Exception {
-        DataSource testSource = new DataSource(filename);
-        this.testset = testSource.getDataSet();
+    public void setTestset (String filename) {
+           try {
+            // Create a Path object from the given filename
+            Path path = Paths.get(filename);
+
+            // If the path is not absolute, resolve it relative to the current working directory
+            if (!path.isAbsolute()) {
+                String currentDir = System.getProperty("user.dir");
+                path = Paths.get(currentDir, filename).normalize();
+            }
+
+            // Convert the Path to a String
+            String absolutePath = path.toAbsolutePath().toString();
+
+            // Use the DataSource with the resolved path
+            DataSource testSource = new DataSource(absolutePath);
+            this.testset = testSource.getDataSet();
+
+            System.out.println("Dataset loaded successfully from: " + absolutePath);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.err.println("Failed to load dataset.");
+        }
     }
     
 
