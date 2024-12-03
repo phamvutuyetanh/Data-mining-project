@@ -31,10 +31,12 @@ public class main {
      */
         votingtechniques voting = new votingtechniques("", null, null);
         voting.buildVotingModel(trainLocation );
-        voting.evaluateVotingModel(validation);
-        J48Model model = new J48Model("", "-C 0.25 -M 2", null);
-        model.buildTree(trainLocation);
-        model.evaluateDecisionTree(validation);
+        System.out.println("Performance of voting");
+        voting.evaluateVotingModel(testLocation);
+//        J48Model model = new J48Model("", "-C 0.25 -M 2", null);
+//        model.buildTree(trainLocation);
+//        System.out.println("Performance of J48");
+//        model.evaluateDecisionTree(validation);
         
         
     }
